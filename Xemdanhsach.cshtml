@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TrieuTruongGiang_2021603645.Models.HocSinh>
+
+@{
+    ViewBag.Title = "Xem danh sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    table, th, tr, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+</style>
+
+<h2>Danh sách học sinh</h2>
+
+<p>
+    @Html.ActionLink("Thêm học sinh", "Create")
+</p>
+<table class="table" style="border: 1px solid black; border-collapse: collapse">
+    <tr>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Ảnh dự thi
+        </th>
+        <th>
+           Điểm thi
+        </th>
+        <th>
+            Lớp học
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.hoten)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.anhduthi)*@
+            <img src="~/Images/Images/@item.anhduthi"  style="width: 40px; height: 40px; position: center"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diemthi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LopHoc.tenlop)
+        </td>
+        <td>
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id=item.sbd }) |
+            @Html.ActionLink("Xem chi yiết", "Details", new { id=item.sbd }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.sbd })
+        </td>
+    </tr>
+}
+
+</table>

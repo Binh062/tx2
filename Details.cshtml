@@ -1,0 +1,50 @@
+﻿@model TrieuTruongGiang_2021603645.Models.HocSinh
+
+@{
+    ViewBag.Title = "Xem chi tiết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HocSinh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Họ tên
+
+        <dd>
+            @Html.DisplayFor(model => model.hoten)
+        </dd>
+
+        <dt>
+           Ảnh dự thi
+        </dt>
+
+        <dd>
+         
+            <img src="~/Images/Images/@Html.DisplayFor(model => model.anhduthi)" style="width: 120px; height: 120px; position: center; padding: 10px;"  />
+        </dd>
+
+        <dt>
+           Điểm thi
+
+        <dd>
+            @Html.DisplayFor(model => model.diemthi)
+        </dd>
+
+        <dt>
+           Tên lớp
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LopHoc.tenlop)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.sbd }) |
+    @Html.ActionLink("Quay lại", "Xemdanhsach")
+</p>
